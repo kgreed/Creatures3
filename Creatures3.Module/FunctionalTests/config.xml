@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" TestRunTimeLimit="3">
+	<Applications>
+		<!-- Win -->
+		<Application
+			Name="Creatures3Win"
+			FileName="[WinAppBin]\Creatures3.Win.exe"
+			AdapterFileName="[WinAdapterFileName]"
+			CommunicationPort="4100"/>
+	</Applications>
+	<TestDatabases>
+		<Database xsi:type="TestMSSQLDatabase" Server="(localdb)\mssqllocaldb" DBName="Creatures3EasyTest"/>
+	</TestDatabases>
+
+	<Aliases>
+		<Alias Name="DomainUserName" Value="%USERDOMAIN%\%USERNAME%" />
+		<Alias Name="WinAdapterFileName" Value="%PROGRAMFILES(x86)%\DevExpress 20.1\.NET Core Desktop Libraries\Bin\NetCore\DevExpress.ExpressApp.EasyTest.WinAdapter.v20.1.dll" />
+		<Alias Name="WinAppBin" Value="[ConfigPath]\..\..\Creatures3.Win\Bin\EasyTest\netcoreapp3.0" />
+	</Aliases>
+</Options>
