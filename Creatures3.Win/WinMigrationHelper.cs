@@ -7,7 +7,7 @@ namespace Creatures.Module.Win
 {
     public static class WinMigrationHelper
     {
-        public static bool CheckMigrationVersionAndUpgradeIfNeeded()
+        public static bool CheckMigrationVersionAndUpgradeIfNeeded( )
         {
             try
             {
@@ -38,7 +38,7 @@ namespace Creatures.Module.Win
 
             msg.AppendLine("Notes for support: The database structure has changed.");
             msg.AppendLine(upgradeDescription);
-            msg.AppendLine("Continue if you are the developer ");
+            msg.AppendLine("Continue if you are the developer (hit cat)");
             msg.AppendLine("");
             if (MessageBox.Show(msg.ToString(), "Upgrade database", MessageBoxButtons.YesNo) != DialogResult.Yes)
             {
@@ -47,6 +47,7 @@ namespace Creatures.Module.Win
             var pwd = "";
             ShowInputDialog("Version Change!", ref pwd);
             return pwd;
+
         }
         public static DialogResult ShowInputDialog(string caption, ref string input)
         {

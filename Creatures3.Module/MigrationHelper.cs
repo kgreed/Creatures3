@@ -23,11 +23,14 @@ namespace Creatures.Module
         public static void RunMigrations(Creatures3DbContext db)
         {
             var configuration = new Configuration();
-            var migrator = new DbMigrator(configuration, db);
-            var pendings = migrator.GetPendingMigrations();
+            var migrator = new DbMigrator(configuration);
+            var pendings =  migrator.GetPendingMigrations();
+           
+            var migratorwithDb = new DbMigrator(configuration, db);
             foreach (var pending in pendings)
             {
-                migrator.Update(pending);
+                
+                migratorwithDb.Update(pending);
             }
         }
     }

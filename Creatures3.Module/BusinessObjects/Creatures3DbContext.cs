@@ -27,7 +27,7 @@ namespace Creatures3.Module.BusinessObjects {
 		public int Id { get; set; }
 		public string Name { get; set; }
 
-		public string tag12 { get; set; }
+		public string tag1234 { get; set; }
     }
     [TypesInfoInitializer(typeof(Creatures3ContextInitializer))]
 	public class Creatures3DbContext : DbContext {

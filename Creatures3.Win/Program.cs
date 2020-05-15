@@ -46,8 +46,12 @@ namespace Creatures3.Win {
                 {
                     return;
                 }
-                winApplication.Setup();
-                winApplication.Start();
+                else
+                {
+                    winApplication.Setup();
+                    winApplication.Start();
+                }
+               
             }
             catch(Exception e) {
                 winApplication.StopSplash();
