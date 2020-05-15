@@ -7,10 +7,10 @@ namespace Creatures.Module
 {
     public static class MigrationHelper
     {
-        public static string MigrationDescription()
+        public static string MigrationDescription(Creatures3DbContext db)
         {
             var configuration = new Configuration();
-            var migrator = new DbMigrator(configuration);
+            var migrator = new DbMigrator(configuration,db);
             var pendings = migrator.GetPendingMigrations();
             var sb = new StringBuilder();
             foreach (var pending in pendings)
@@ -23,14 +23,14 @@ namespace Creatures.Module
         public static void RunMigrations(Creatures3DbContext db)
         {
             var configuration = new Configuration();
-            var migrator = new DbMigrator(configuration);
+            var migrator = new DbMigrator(configuration,db);
             var pendings =  migrator.GetPendingMigrations();
            
-            var migratorwithDb = new DbMigrator(configuration, db);
+             
             foreach (var pending in pendings)
             {
                 
-                migratorwithDb.Update(pending);
+                migrator.Update(pending);
             }
         }
     }

@@ -95,7 +95,7 @@ namespace Creatures.Module.Win
         }
         private static bool RunMigrations(Creatures3DbContext db)
         {
-            var upgradeDescription = MigrationHelper.MigrationDescription();
+            var upgradeDescription = MigrationHelper.MigrationDescription(db);
             var pwd = AskForUpgradePassword(upgradeDescription);
             if (pwd != "cat")
             {
