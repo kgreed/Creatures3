@@ -1,13 +1,14 @@
-﻿ 
+﻿
 using System;
 using System.Text;
 using System.Windows.Forms;
+using Creatures3.Module;
 using Creatures3.Module.BusinessObjects;
 namespace Creatures.Module.Win
 {
     public static class WinMigrationHelper
     {
-        public static bool CheckMigrationVersionAndUpgradeIfNeeded( )
+        public static bool CheckMigrationVersionAndUpgradeIfNeeded()
         {
             try
             {
@@ -21,7 +22,7 @@ namespace Creatures.Module.Win
                 {
                     compatible = db.Database.CompatibleWithModel(true);
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     compatible = false;
 
@@ -30,10 +31,10 @@ namespace Creatures.Module.Win
                 {
                     return true;
                 }
-              
+
                 return RunMigrations(db);
-                   
-                
+
+
             }
             catch (Exception ex)
             {
@@ -111,7 +112,7 @@ namespace Creatures.Module.Win
             var pwd = AskForUpgradePassword(upgradeDescription);
             if (pwd != "cat")
             {
-                return  false ;
+                return false;
             }
             try
             {

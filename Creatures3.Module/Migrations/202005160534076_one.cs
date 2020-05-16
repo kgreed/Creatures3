@@ -8,6 +8,17 @@
         public override void Up()
         {
             //CreateTable(
+            //    "dbo.cats",
+            //    c => new
+            //        {
+            //            Id = c.Int(nullable: false, identity: true),
+            //            Name = c.String(),
+            //            TagA = c.String(),
+            //            TagB = c.String(),
+            //        })
+            //    .PrimaryKey(t => t.Id);
+            
+            //CreateTable(
             //    "dbo.ModelDifferenceAspects",
             //    c => new
             //        {
@@ -160,33 +171,34 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.PermissionPolicyUserPermissionPolicyRoles", "PermissionPolicyRole_ID", "dbo.PermissionPolicyRoleBases");
-            DropForeignKey("dbo.PermissionPolicyUserPermissionPolicyRoles", "PermissionPolicyUser_ID", "dbo.PermissionPolicyUsers");
-            DropForeignKey("dbo.PermissionPolicyTypePermissionObjects", "Role_ID", "dbo.PermissionPolicyRoleBases");
-            DropForeignKey("dbo.PermissionPolicyObjectPermissionsObjects", "TypePermissionObject_ID", "dbo.PermissionPolicyTypePermissionObjects");
-            DropForeignKey("dbo.PermissionPolicyMemberPermissionsObjects", "TypePermissionObject_ID", "dbo.PermissionPolicyTypePermissionObjects");
-            DropForeignKey("dbo.PermissionPolicyNavigationPermissionObjects", "Role_ID", "dbo.PermissionPolicyRoleBases");
-            DropForeignKey("dbo.PermissionPolicyActionPermissionObjects", "Role_ID", "dbo.PermissionPolicyRoleBases");
-            DropForeignKey("dbo.ModelDifferenceAspects", "Owner_ID", "dbo.ModelDifferences");
-            DropIndex("dbo.PermissionPolicyUserPermissionPolicyRoles", new[] { "PermissionPolicyRole_ID" });
-            DropIndex("dbo.PermissionPolicyUserPermissionPolicyRoles", new[] { "PermissionPolicyUser_ID" });
-            DropIndex("dbo.PermissionPolicyObjectPermissionsObjects", new[] { "TypePermissionObject_ID" });
-            DropIndex("dbo.PermissionPolicyMemberPermissionsObjects", new[] { "TypePermissionObject_ID" });
-            DropIndex("dbo.PermissionPolicyTypePermissionObjects", new[] { "Role_ID" });
-            DropIndex("dbo.PermissionPolicyNavigationPermissionObjects", new[] { "Role_ID" });
-            DropIndex("dbo.PermissionPolicyActionPermissionObjects", new[] { "Role_ID" });
-            DropIndex("dbo.ModelDifferenceAspects", new[] { "Owner_ID" });
-            DropTable("dbo.PermissionPolicyUserPermissionPolicyRoles");
-            DropTable("dbo.PermissionPolicyUsers");
-            DropTable("dbo.PermissionPolicyObjectPermissionsObjects");
-            DropTable("dbo.PermissionPolicyMemberPermissionsObjects");
-            DropTable("dbo.PermissionPolicyTypePermissionObjects");
-            DropTable("dbo.PermissionPolicyNavigationPermissionObjects");
-            DropTable("dbo.PermissionPolicyActionPermissionObjects");
-            DropTable("dbo.PermissionPolicyRoleBases");
-            DropTable("dbo.ModuleInfoes");
-            DropTable("dbo.ModelDifferences");
-            DropTable("dbo.ModelDifferenceAspects");
+            //DropForeignKey("dbo.PermissionPolicyUserPermissionPolicyRoles", "PermissionPolicyRole_ID", "dbo.PermissionPolicyRoleBases");
+            //DropForeignKey("dbo.PermissionPolicyUserPermissionPolicyRoles", "PermissionPolicyUser_ID", "dbo.PermissionPolicyUsers");
+            //DropForeignKey("dbo.PermissionPolicyTypePermissionObjects", "Role_ID", "dbo.PermissionPolicyRoleBases");
+            //DropForeignKey("dbo.PermissionPolicyObjectPermissionsObjects", "TypePermissionObject_ID", "dbo.PermissionPolicyTypePermissionObjects");
+            //DropForeignKey("dbo.PermissionPolicyMemberPermissionsObjects", "TypePermissionObject_ID", "dbo.PermissionPolicyTypePermissionObjects");
+            //DropForeignKey("dbo.PermissionPolicyNavigationPermissionObjects", "Role_ID", "dbo.PermissionPolicyRoleBases");
+            //DropForeignKey("dbo.PermissionPolicyActionPermissionObjects", "Role_ID", "dbo.PermissionPolicyRoleBases");
+            //DropForeignKey("dbo.ModelDifferenceAspects", "Owner_ID", "dbo.ModelDifferences");
+            //DropIndex("dbo.PermissionPolicyUserPermissionPolicyRoles", new[] { "PermissionPolicyRole_ID" });
+            //DropIndex("dbo.PermissionPolicyUserPermissionPolicyRoles", new[] { "PermissionPolicyUser_ID" });
+            //DropIndex("dbo.PermissionPolicyObjectPermissionsObjects", new[] { "TypePermissionObject_ID" });
+            //DropIndex("dbo.PermissionPolicyMemberPermissionsObjects", new[] { "TypePermissionObject_ID" });
+            //DropIndex("dbo.PermissionPolicyTypePermissionObjects", new[] { "Role_ID" });
+            //DropIndex("dbo.PermissionPolicyNavigationPermissionObjects", new[] { "Role_ID" });
+            //DropIndex("dbo.PermissionPolicyActionPermissionObjects", new[] { "Role_ID" });
+            //DropIndex("dbo.ModelDifferenceAspects", new[] { "Owner_ID" });
+            //DropTable("dbo.PermissionPolicyUserPermissionPolicyRoles");
+            //DropTable("dbo.PermissionPolicyUsers");
+            //DropTable("dbo.PermissionPolicyObjectPermissionsObjects");
+            //DropTable("dbo.PermissionPolicyMemberPermissionsObjects");
+            //DropTable("dbo.PermissionPolicyTypePermissionObjects");
+            //DropTable("dbo.PermissionPolicyNavigationPermissionObjects");
+            //DropTable("dbo.PermissionPolicyActionPermissionObjects");
+            //DropTable("dbo.PermissionPolicyRoleBases");
+            //DropTable("dbo.ModuleInfoes");
+            //DropTable("dbo.ModelDifferences");
+            //DropTable("dbo.ModelDifferenceAspects");
+            //DropTable("dbo.cats");
         }
     }
 }

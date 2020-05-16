@@ -4,7 +4,7 @@ using System.Text;
 using Creatures3.Module.BusinessObjects;
 using Creatures3.Module.Migrations;
 
-namespace Creatures.Module
+namespace Creatures3.Module
 {
     public static class MigrationHelper
     {
