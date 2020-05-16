@@ -7,13 +7,13 @@ namespace Creatures3.Module.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class one : IMigrationMetadata
+    public sealed partial class three : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(one));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(three));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005142214132_one"; }
+            get { return "202005160400337_three"; }
         }
         
         string IMigrationMetadata.Source

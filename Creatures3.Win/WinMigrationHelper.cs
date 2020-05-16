@@ -14,14 +14,26 @@ namespace Creatures.Module.Win
                 var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
                 using var db = new Creatures3DbContext(connectionString);
                 if (!db.Database.Exists()) return true; // Let EF Create it
-                if (db.Database.CompatibleWithModel(false))
+
+                var compatible = false;
+
+                try
+                {
+                    compatible = db.Database.CompatibleWithModel(true);
+                }
+                catch (Exception )
+                {
+                    compatible = false;
+
+                }
+                if (compatible)
                 {
                     return true;
                 }
-                else // keep the else statement
-                {
-                    return RunMigrations(db);
-                }
+              
+                return RunMigrations(db);
+                   
+                
             }
             catch (Exception ex)
             {
@@ -99,7 +111,7 @@ namespace Creatures.Module.Win
             var pwd = AskForUpgradePassword(upgradeDescription);
             if (pwd != "cat")
             {
-                return false;
+                return  false ;
             }
             try
             {
@@ -110,11 +122,13 @@ namespace Creatures.Module.Win
                 //    "UPDATE dbo.__MigrationHistory SET CreatedOn = GETDATE()");
                 MigrationHelper.RunMigrations(db);
                 return true;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                return false;
+                return true;
+
             }
         }
     }
