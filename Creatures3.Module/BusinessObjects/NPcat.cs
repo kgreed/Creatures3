@@ -7,6 +7,7 @@ namespace Creatures3.Module.BusinessObjects
     [NavigationItem("Creatures")]
     [XafDisplayName("NPCats")]
     [DefaultClassOptions]
+    [DomainComponent]
     [ListViewFilter("TagA", "TagA <>''", "TagA", true, Index = 0)]
     [ListViewFilter("TagB", "TagB <>''", "TagB", true, Index = 1)]
     [ListViewFilter("TagC", "TagC <>''", "TagC", true, Index = 2)]
@@ -30,9 +31,7 @@ namespace Creatures3.Module.BusinessObjects
                 var npcat = new NPCat {Name = n.Name, TagA = n.TagA, Id = n.Id, TagB = n.TagB,  TagC = n.TagC };
                 nps.Add(npcat);
             }
-
             return nps.ToArray();
         }
-
     }
 }
