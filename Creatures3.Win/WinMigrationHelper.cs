@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using Creatures3.Module;
 using Creatures3.Module.BusinessObjects;
-namespace Creatures.Module.Win
+namespace Creatures3.Module.Win
 {
     public static class WinMigrationHelper
     {

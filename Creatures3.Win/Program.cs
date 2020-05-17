@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-using Creatures.Module.Win;
 using Creatures3.Module.Win;
+ 
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Win;
@@ -52,9 +52,10 @@ namespace Creatures3.Win {
                     winApplication.Setup();
                     winApplication.Start();
                 }
-
+                //winApplication.Setup();
+                //winApplication.Start();
             }
-            catch(Exception e) {
+            catch (Exception e) {
                 winApplication.StopSplash();
                 winApplication.HandleException(e);
             }
