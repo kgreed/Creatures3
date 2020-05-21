@@ -12,6 +12,7 @@ namespace Creatures3.Module.Win.Controllers
         public NPCatObjectViewController()
         {
             InitializeComponent();
+            TargetObjectType = typeof(NPCat);
         }
         protected override void OnActivated()
         {
@@ -21,6 +22,8 @@ namespace Creatures3.Module.Win.Controllers
             View.CollectionSource.CriteriaApplied += CollectionSource_CriteriaApplied;
             View.CreateCustomCurrentObjectDetailView += View_CreateCustomCurrentObjectDetailView;
             ObjectSpace.Refresh();
+            Frame.GetController<FilterController>()?.Active.SetItemValue("Workaround T890466", false);
+            Frame.GetController<FilterController>()?.Active.RemoveItem("Workaround T890466");
         }
         private void View_CreateCustomCurrentObjectDetailView(object sender,
             CreateCustomCurrentObjectDetailViewEventArgs e)
@@ -47,9 +50,26 @@ namespace Creatures3.Module.Win.Controllers
             var valueOperand = (OperandValue)filter.RightOperand;
             // var filterNum = (ToDoListFilterEnum)valueOperand.Value;
             // todo  make use of the filter
-            var objects = NPCat.GetNPCats().ToList();
-            e.Objects = objects;
+            //var objects = NPCat.GetNPCats().ToList();
+            //e.Objects = objects;
 
+
+            if (e.ObjectType == typeof(NPCat))
+            {
+                var collection = new DynamicCollection((IObjectSpace)sender, e.ObjectType, e.Criteria, e.Sorting, e.InTransaction);
+                collection.FetchObjects += DynamicCollection_FetchObjects;
+                e.Objects = collection;
+            }
+
+
+        }
+        private void DynamicCollection_FetchObjects(object sender, FetchObjectsEventArgs e)
+        {
+            if (e.ObjectType == typeof(NPCat))
+            {
+                e.Objects = NPCat.GetNPCats().ToList();
+                e.ShapeData = true;
+            }
         }
         private void CollectionSource_CriteriaApplied(object sender, EventArgs e)
         {
