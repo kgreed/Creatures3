@@ -45,15 +45,7 @@ namespace Creatures3.Module.Win.Controllers
         }
         private void os_ObjectsGetting(object sender, ObjectsGettingEventArgs e)
         {
-            var filterController = Frame.GetController<FilterController>();
-            if (filterController.SetFilterAction.SelectedItem == null) return;
-            var filterExpression = (string)filterController.SetFilterAction.SelectedItem.Data;
-            //var filter = (BinaryOperator)CriteriaOperator.Parse(filterExpression);
-            // var valueOperand = (OperandValue)filter.RightOperand;
-            // var filterNum = (ToDoListFilterEnum)valueOperand.Value;
            
-            var filterNum = (NPCatFilterEnum)Enum.Parse(typeof(NPCatFilterEnum), filterExpression);
-            // todo  make use of the filter
             var collection = new DynamicCollection((IObjectSpace)sender, e.ObjectType, e.Criteria, e.Sorting, e.InTransaction);
             collection.FetchObjects += DynamicCollection_FetchObjects;
             e.Objects = collection;
@@ -63,8 +55,17 @@ namespace Creatures3.Module.Win.Controllers
 
         private void DynamicCollection_FetchObjects(object sender, FetchObjectsEventArgs e)
         {
-  
-                e.Objects = NPCat.GetNPCats().ToList();
+            var filterController = Frame.GetController<FilterController>();
+            if (filterController.SetFilterAction.SelectedItem == null) return;
+            var filterExpression = (string)filterController.SetFilterAction.SelectedItem.Data;
+            //var filter = (BinaryOperator)CriteriaOperator.Parse(filterExpression);
+            // var valueOperand = (OperandValue)filter.RightOperand;
+            // var filterNum = (ToDoListFilterEnum)valueOperand.Value;
+
+            var filterNum = (NPCatFilterEnum)Enum.Parse(typeof(NPCatFilterEnum), filterExpression);
+            // todo  make use of the filter
+
+            e.Objects = NPCat.GetNPCats().ToList();
                 e.ShapeData = true;
         }
         //private void CollectionSource_CriteriaApplied(object sender, EventArgs e)

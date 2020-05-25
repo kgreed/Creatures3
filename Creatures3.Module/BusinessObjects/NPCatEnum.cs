@@ -2,8 +2,8 @@
 {
     public enum NPCatFilterEnum
     {
-        TagA,
-        TagB,
-        TagC
+        MyTagA,
+        MyTagB,
+        MyTagC
     }
 }

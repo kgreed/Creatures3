@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Creatures3">
   <BOModel>
-    <Class Name="Creatures3.Module.BusinessObjects.NPCat" DefaultListViewMasterDetailMode="ListViewAndDetailView" />
+    <Class Name="Creatures3.Module.BusinessObjects.NPCat" DefaultListViewMasterDetailMode="ListViewOnly" />
     <Class Name="Creatures3.Module.BusinessObjects.OPCat" DefaultListViewMasterDetailMode="ListViewAndDetailView" />
   </BOModel>
   <Options>
