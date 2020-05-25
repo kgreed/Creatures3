@@ -10,9 +10,9 @@ namespace Creatures3.Module.BusinessObjects
     [XafDisplayName("NPCats")]
     [DefaultClassOptions]
     [DomainComponent]
-    [ListViewFilter("TagA", "MyTagA", "TagA", true, Index = 0)]
-    [ListViewFilter("TagB", "MyTagB", "TagB", true, Index = 1)]
-    [ListViewFilter("TagC", "MyTagC", "TagC", true, Index = 2)]
+    [ListViewFilter("TagA", "true", "TagA", true, Index = 0)]
+    [ListViewFilter("TagB", "true", "TagB", true, Index = 1)]
+    [ListViewFilter("TagC", "true", "TagC", true, Index = 2)]
     public class NPCat
     {
         public int Id { get; set; }

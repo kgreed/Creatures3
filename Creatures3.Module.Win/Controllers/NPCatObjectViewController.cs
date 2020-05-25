@@ -20,7 +20,7 @@ namespace Creatures3.Module.Win.Controllers
             base.OnActivated();
             var os = (NonPersistentObjectSpace)ObjectSpace;
             os.ObjectsGetting += os_ObjectsGetting;
-         //   View.CollectionSource.CriteriaApplied += CollectionSource_CriteriaApplied;
+            View.CollectionSource.CriteriaApplied += CollectionSource_CriteriaApplied;
             View.CreateCustomCurrentObjectDetailView += View_CreateCustomCurrentObjectDetailView;
             ObjectSpace.Refresh();
             Frame.GetController<FilterController>()?.Active.SetItemValue("Workaround T890466", false);
@@ -62,15 +62,15 @@ namespace Creatures3.Module.Win.Controllers
             // var valueOperand = (OperandValue)filter.RightOperand;
             // var filterNum = (ToDoListFilterEnum)valueOperand.Value;
 
-            var filterNum = (NPCatFilterEnum)Enum.Parse(typeof(NPCatFilterEnum), filterExpression);
+            //var filterNum = (NPCatFilterEnum)Enum.Parse(typeof(NPCatFilterEnum), filterExpression);
             // todo  make use of the filter
 
             e.Objects = NPCat.GetNPCats().ToList();
                 e.ShapeData = true;
         }
-        //private void CollectionSource_CriteriaApplied(object sender, EventArgs e)
-        //{
-        //    ObjectSpace.Refresh();
-        //}
+        private void CollectionSource_CriteriaApplied(object sender, EventArgs e)
+        {
+            //ObjectSpace.Refresh();
+        }
     }
 }
